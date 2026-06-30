@@ -1,36 +1,6 @@
-# Simulation application files
-simulation_app/
-simulation_app/**/
-
-# Engine modules (Python)
-engine/
-engine/**/
-
-# Compiled Python
-*.pyc
 __pycache__/
+*.pyc
+*.pyo
 .cache/
-
-# Streamlit
-.streamlit/
-
-# Output files
-outputs/
-
-# Scripts
-scripts/
-
-# Build scripts
-*.py
-
-# Memory
-memory/
-memory/**/*
-
-# Windows
-*.docx
-*.pptx
-*.xlsx
-
-# Don't include the workspace root itself
-# (we'll include simulation_app/ explicitly)
+.env
+*.pdf
