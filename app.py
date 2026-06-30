@@ -1064,11 +1064,9 @@ def main():
     elif page == 'group_round':
         round_num = st.session_state.get('current_round', 1)
         if round_num == 1 and st.session_state.get('round_submitted', [False]*4)[0]:
-            # After R1 submit, show secret envelope first
-            if not st.session_state.get('secret_acknowledged'):
-                secret_reveal_screen()
-            else:
-                group_input_round(1)
+            # After R1 submit, show secret envelope always until current_round advances to 2
+            # secret_reveal_screen handles both [OPEN] and [OK] I Acknowledge internally
+            secret_reveal_screen()
         else:
             group_input_round(round_num)
         if round_num >= 5:
