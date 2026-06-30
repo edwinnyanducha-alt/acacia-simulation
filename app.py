@@ -8,7 +8,7 @@ from typing import Dict, Optional
 # Page config must be first
 st.set_page_config(
     page_title="Acacia Strategic Simulation",
-    page_icon="🎢",
+    page_icon="🏢",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -262,7 +262,7 @@ def landing_page():
     st.markdown(
         """
         <div style="text-align:center; padding: 4rem 2rem 2rem 2rem;">
-            <div style="font-size:3rem; margin-bottom:1rem;">🎢</div>
+            <div style="font-size:3rem; margin-bottom:1rem;">🏢</div>
             <h1 style="color:#ECF0F1; font-size:2.5rem; margin-bottom:0.5rem;">Acacia Strategic Simulation</h1>
             <p style="color:#D4A017; font-size:1.3rem; font-style:italic; margin-bottom:2rem;">
                 the Corporate Campus &mdash; Decision Discovery Exercise
@@ -278,13 +278,13 @@ def landing_page():
         col_a, col_b = st.columns(2)
         
         with col_a:
-            if st.button("  ŸŽ¯  Start New Session", use_container_width=True, type="primary"):
+            if st.button("  >>  Start New Session", use_container_width=True, type="primary"):
                 st.session_state.role = 'facilitator'
                 st.session_state.page = 'facilitator_setup'
                 st.rerun()
         
         with col_b:
-            if st.button("  Ÿ”—  Join Session", use_container_width=True, type="secondary"):
+            if st.button("  <>  Join Session", use_container_width=True, type="secondary"):
                 st.session_state.role = 'group'
                 st.session_state.page = 'group_join'
                 st.rerun()
@@ -313,7 +313,7 @@ def facilitator_setup():
     """Facilitator creates a new session."""
     col1, col2, col3 = st.columns([1, 3, 1])
     with col1:
-        if st.button("â† Back", use_container_width=True):
+        if st.button("[BACK] Back", use_container_width=True):
             st.session_state.page = 'landing'
             st.session_state.role = None
             st.rerun()
@@ -351,7 +351,7 @@ def group_join():
     """Group participant joins by entering session code and choosing colour."""
     col1, col2, col3 = st.columns([1, 3, 1])
     with col1:
-        if st.button("â† Back", use_container_width=True):
+        if st.button("[BACK] Back", use_container_width=True):
             st.session_state.page = 'landing'
             st.session_state.role = None
             st.rerun()
@@ -359,7 +359,7 @@ def group_join():
     with col2:
         st.markdown(
             '<div style="text-align:center; padding:1rem 0;">'
-            '<h2 style="color:#ECF0F1;">  Ÿ”— Join Simulation</h2>'
+            '<h2 style="color:#ECF0F1;">  <> Join Simulation</h2>'
             '</div>',
             unsafe_allow_html=True
         )
@@ -378,7 +378,7 @@ def group_join():
             col_c, col_d = st.columns(2)
             
             with col_a:
-                if st.button("  ŸŸ¢  Green (Stewards)\nPatient. Guardian. Long-term.", use_container_width=True):
+                if st.button("  (G)  Green (Stewards)\nPatient. Guardian. Long-term.", use_container_width=True):
                     st.session_state.group_colour = "Green"
                     st.session_state.archetype = ARCHETYPES["Stewards"]
                     st.session_state.page = 'group_round'
@@ -386,7 +386,7 @@ def group_join():
                     st.rerun()
             
             with col_b:
-                if st.button("  Ÿ”µ  Blue (Developers)\nAggressive. Value-maximiser.", use_container_width=True):
+                if st.button("  (B)  Blue (Developers)\nAggressive. Value-maximiser.", use_container_width=True):
                     st.session_state.group_colour = "Blue"
                     st.session_state.archetype = ARCHETYPES["Developers"]
                     st.session_state.page = 'group_round'
@@ -394,7 +394,7 @@ def group_join():
                     st.rerun()
             
             with col_c:
-                if st.button("  ŸŸ¡  Gold (Rainmakers)\nConnected. Partnership-seeker.", use_container_width=True):
+                if st.button("  (Y)  Gold (Rainmakers)\nConnected. Partnership-seeker.", use_container_width=True):
                     st.session_state.group_colour = "Gold"
                     st.session_state.archetype = ARCHETYPES["Rainmakers"]
                     st.session_state.page = 'group_round'
@@ -402,7 +402,7 @@ def group_join():
                     st.rerun()
             
             with col_d:
-                if st.button("  Ÿ”´  Red (Gamblers)\nBold. Speed-obsessed.", use_container_width=True):
+                if st.button("  (R)  Red (Gamblers)\nBold. Speed-obsessed.", use_container_width=True):
                     st.session_state.group_colour = "Red"
                     st.session_state.archetype = ARCHETYPES["Gamblers"]
                     st.session_state.page = 'group_round'
@@ -438,7 +438,7 @@ def group_input_round(round_num: int):
             st.markdown(f'<span class="badge-gold">Round {round_num} â€” Awaiting Input</span>',
                         unsafe_allow_html=True)
     with col_c:
-        if st.button("â¹ End Session", type="secondary"):
+        if st.button("[END] End Session", type="secondary"):
             st.session_state.page = 'landing'
             st.session_state.role = None
             st.rerun()
@@ -554,7 +554,7 @@ def group_round1(arch):
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button("âœ“ Submit Round 1", type="primary", use_container_width=True, disabled=False):
+        if st.button("[>>] Submit Round 1", type="primary", use_container_width=True, disabled=False):
             # Save decisions
             st.session_state.decisions['nda'] = nda
             st.session_state.decisions['green_space'] = green
@@ -576,14 +576,14 @@ def secret_reveal_screen():
     
     st.markdown(f"""
     <div style="text-align:center; padding:3rem;">
-        <div style="font-size:4rem;">🎢</div>
+        <div style="font-size:4rem;">🏢</div>
         <h2 style="color:#D4A017; margin:1rem 0;">Your Group Has Received a Sealed Message</h2>
         <p style="color:#7F8C8D; font-size:1.1rem;">Read it silently. Do not reveal to other groups.</p>
     </div>
     """, unsafe_allow_html=True)
     
     if not st.session_state.secret_acknowledged:
-        if st.button("âœ‰ Open Your Envelope", type="primary", use_container_width=True):
+        if st.button("[OPEN] Open Your Envelope", type="primary", use_container_width=True):
             st.session_state.secret_acknowledged = True
             st.rerun()
     else:
@@ -608,7 +608,7 @@ def secret_reveal_screen():
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("âœ“ I Acknowledge", type="primary", use_container_width=True):
+        if st.button("[OK] I Acknowledge", type="primary", use_container_width=True):
             st.session_state.current_round = 2
             st.rerun()
 
@@ -671,7 +671,7 @@ def group_round2(arch):
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button("âœ“ Submit Round 2", type="primary", use_container_width=True):
+        if st.button("[>>] Submit Round 2", type="primary", use_container_width=True):
             decisions = st.session_state.decisions
             decisions['debt_pct'] = debt
             decisions['partner_type'] = partner.replace(" (30%)", "").replace(" (50%)", "").replace(" (70%+)", "")
@@ -744,7 +744,7 @@ def group_round3(arch):
     
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button("âœ“ Submit Round 3", type="primary", use_container_width=True):
+        if st.button("[>>] Submit Round 3", type="primary", use_container_width=True):
             decisions = st.session_state.decisions
             decisions['pivot'] = pivot[1]
             decisions['nbo_r3'] = nbo
@@ -818,7 +818,7 @@ def group_round4(arch):
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button("âœ“ Submit Final Round", type="primary", use_container_width=True):
+        if st.button("[>>] Submit Final Round", type="primary", use_container_width=True):
             decisions = st.session_state.decisions
             decisions['offer'] = offer
             decisions['dispute'] = dispute
@@ -926,10 +926,10 @@ def facilitator_dashboard():
     # Simulated group status
     st.markdown('<h3 style="color:#ECF0F1;">Group Submission Status</h3>', unsafe_allow_html=True)
     status_data = [
-        ["Stewards", "  ŸŸ¢", "âœ“", "Connected"],
-        ["Developers", "  Ÿ”µ", "âœ“", "Connected"],
-        ["Rainmakers", "  ŸŸ¡", "â³", "Connected"],
-        ["Gamblers", "  Ÿ”´", "âœ—", "Not yet joined"],
+        ["Stewards", "  (G)", "âœ“", "Connected"],
+        ["Developers", "  (B)", "âœ“", "Connected"],
+        ["Rainmakers", "  (Y)", "â³", "Connected"],
+        ["Gamblers", "  (R)", "âœ—", "Not yet joined"],
     ]
     st.table(pd.DataFrame(status_data, columns=["Group", "Colour", "Round 1", "Status"]))
     
@@ -1034,11 +1034,11 @@ def facilitator_dashboard():
     # Archive
     col_arc1, col_arc2 = st.columns(2)
     with col_arc1:
-        if st.button("  Ÿ’¾ Archive Session", use_container_width=True, type="primary"):
+        if st.button("  [+] Archive Session", use_container_width=True, type="primary"):
             st.session_state.session_archived = True
             st.success("Session archived to SQLite. PDF summary ready for download.")
     with col_arc2:
-        if st.button("â¹ End Session", use_container_width=True, type="secondary"):
+        if st.button("[END] End Session", use_container_width=True, type="secondary"):
             for k in list(st.session_state.keys()):
                 del st.session_state[k]
             st.rerun()
