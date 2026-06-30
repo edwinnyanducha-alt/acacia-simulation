@@ -1,8 +1,8 @@
-# Belgo Strategic Simulation — Web App
+﻿# Acacia Strategic Simulation â€” Web App
 
-**Kitisuru Corporate Campus — Decision Discovery Exercise**
+**the Corporate Campus â€” Decision Discovery Exercise**
 
-A multi-group, multi-round strategic simulation for the Belgo Holdings board and family. Four groups compete under different archetypes (Stewards, Developers, Rainmakers, Gamblers) through 4 rounds of decisions — Ground Rules, Capital & Partners, The Shock, and Exit & Family.
+A multi-group, multi-round strategic simulation for the Acacia Holdings board and family. Four groups compete under different archetypes (Stewards, Developers, Rainmakers, Gamblers) through 4 rounds of decisions â€” Ground Rules, Capital & Partners, The Shock, and Exit & Family.
 
 Built with Streamlit. Live demo-ready.
 
@@ -22,7 +22,7 @@ Opens at `http://localhost:8501`.
 
 1. Push this folder to a GitHub repository
 2. Go to https://share.streamlit.io
-3. Sign in with GitHub → "New app"
+3. Sign in with GitHub â†’ "New app"
 4. Select your repo, branch, set main file to `app.py`
 5. Click Deploy
 
@@ -38,15 +38,15 @@ railway up
 
 ```
 simulation_app/
-├── app.py                  # Main application (entry point)
-├── requirements.txt        # Python dependencies
-├── .streamlit/             # Theme configuration
-│   └── config.toml
-└── engine/                 # Simulation engine
-    ├── __init__.py
-    ├── archetypes.py       # 4 archetypes with secrets
-    ├── scoring.py          # Scoring engine (4 dimensions)
-    └── implications.py     # Narrative implications (26 entries)
+â”œâ”€â”€ app.py                  # Main application (entry point)
+â”œâ”€â”€ requirements.txt        # Python dependencies
+â”œâ”€â”€ .streamlit/             # Theme configuration
+â”‚   â””â”€â”€ config.toml
+â””â”€â”€ engine/                 # Simulation engine
+    â”œâ”€â”€ __init__.py
+    â”œâ”€â”€ archetypes.py       # 4 archetypes with secrets
+    â”œâ”€â”€ scoring.py          # Scoring engine (4 dimensions)
+    â””â”€â”€ implications.py     # Narrative implications (26 entries)
 ```
 
 ## Scoring Dimensions
@@ -62,11 +62,11 @@ simulation_app/
 
 | Group | Colour | Strategy |
 |-------|--------|----------|
-| **Stewards** | 🟢 Green | Patient, family-controlled, long-term value |
-| **Developers** | 🔵 Blue | Aggressive, fast exit, value-maximising |
-| **Rainmakers** | 🟡 Gold | Partnership-oriented, external capital |
-| **Gamblers** | 🔴 Red | Speculative, maximum velocity |
+| **Stewards** | ðŸŸ¢ Green | Patient, family-controlled, long-term value |
+| **Developers** | ðŸ”µ Blue | Aggressive, fast exit, value-maximising |
+| **Rainmakers** | ðŸŸ¡ Gold | Partnership-oriented, external capital |
+| **Gamblers** | ðŸ”´ Red | Speculative, maximum velocity |
 
 ---
 
-*Confidential — Belgo Holdings Limited*
+*Confidential â€” Acacia Holdings Limited*

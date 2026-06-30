@@ -1,4 +1,4 @@
-"""Archetype definitions for Belgo Strategic Simulation."""
+﻿"""Archetype definitions for Acacia Strategic Simulation."""
 
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
@@ -40,7 +40,7 @@ ARCHETYPES: Dict[str, Archetype] = {
         win_condition="Retain more than 70% of the land after Round 4",
         secret_text=(
             "You represent the branch that worries about inter-generational wealth preservation. "
-            "You believe the land should never be sold — it's the family's anchor asset. "
+            "You believe the land should never be sold â€” it's the family's anchor asset. "
             "Ground leases are the only acceptable model. "
             "However, one family branch needs KES 50M within 6 months for a medical emergency. "
             "Generate liquidity or face a forced sale of some parcels."
@@ -59,10 +59,10 @@ ARCHETYPES: Dict[str, Archetype] = {
         description="Aggressive, value-maximizing. The time to maximise value is now.",
         win_condition="Achieve at least KES 500M in cash distributions by end of Round 3",
         secret_text=(
-            "You believe Nairobi's market cycle is at a peak — waiting is leaving money on the table. "
+            "You believe Nairobi's market cycle is at a peak â€” waiting is leaving money on the table. "
             "You know a senior County planning source has confirmed rezoning is likely in 18-24 months. "
             "A KES 10M fee can fast-track approvals through the County. "
-            "And if Belgo buys the adjacent 3 acres (KES 120M), the family could triple their money. "
+            "And if Acacia buys the adjacent 3 acres (KES 120M), the family could triple their money. "
             "Do you pay the KES 10M fee? That decision has consequences."
         ),
         default_bias="Outright sales, 65 NDA, 50% debt, admin-only relationships",
@@ -81,7 +81,7 @@ ARCHETYPES: Dict[str, Archetype] = {
         secret_text=(
             "You have connections. A Pan-African DFI has expressed interest in a 30-40% JV for KES 2.5B. "
             "But Tatu City is actively poaching your target tenants with SEZ tax breaks. "
-            "You have 6 months to differentiate Belgo or lose the anchor tenant. "
+            "You have 6 months to differentiate Acacia or lose the anchor tenant. "
             "The DFI board meets in 30 days. You must submit a preliminary proposal within 2 weeks."
         ),
         default_bias="JVs, moderate debt, heavy relationship investment, partnerships",

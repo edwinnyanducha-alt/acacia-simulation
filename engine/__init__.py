@@ -1,1 +1,1 @@
-﻿# Engine package for Belgo Strategic Simulation scoring engine
+﻿# Engine package for Acacia Strategic Simulation scoring engine

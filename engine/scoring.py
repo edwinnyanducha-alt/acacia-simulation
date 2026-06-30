@@ -1,4 +1,4 @@
-"""Scoring engine for Belgo Strategic Simulation."""
+﻿"""Scoring engine for Acacia Strategic Simulation."""
 
 from typing import Dict, List, Any
 
@@ -32,7 +32,7 @@ def calculate_scores(decisions: Dict[str, Any]) -> Dict[str, float]:
     """
     scores = {}
     
-    # ── REPUTATION (25%) ──
+    # â”€â”€ REPUTATION (25%) â”€â”€
     rep = 50  # base
     
     # Green space bonus
@@ -68,7 +68,7 @@ def calculate_scores(decisions: Dict[str, Any]) -> Dict[str, float]:
     
     scores['reputation'] = rep
     
-    # ── IRR (30%) ──
+    # â”€â”€ IRR (30%) â”€â”€
     irr = 50  # base
     
     # Ground lease impact (from monetisation archetype)
@@ -113,7 +113,7 @@ def calculate_scores(decisions: Dict[str, Any]) -> Dict[str, float]:
     
     scores['irr'] = irr
     
-    # ── CASH VELOCITY (20%) ──
+    # â”€â”€ CASH VELOCITY (20%) â”€â”€
     vel = 50  # base
     
     # Sale % (from monetisation archetype)
@@ -150,7 +150,7 @@ def calculate_scores(decisions: Dict[str, Any]) -> Dict[str, float]:
     
     scores['velocity'] = vel
     
-    # ── RESILIENCE (25%) ──
+    # â”€â”€ RESILIENCE (25%) â”€â”€
     res = 50  # base
     
     # Shock survival
@@ -187,7 +187,7 @@ def calculate_scores(decisions: Dict[str, Any]) -> Dict[str, float]:
     
     scores['resilience'] = res
     
-    # ── WEIGHTED TOTAL ──
+    # â”€â”€ WEIGHTED TOTAL â”€â”€
     scores['weighted_total'] = (
         scores['reputation'] * 0.25 +
         scores['irr'] * 0.30 +

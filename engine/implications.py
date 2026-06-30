@@ -1,9 +1,9 @@
-"""Implications library — narrative explanations for each decision."""
+﻿"""Implications library â€” narrative explanations for each decision."""
 
 IMPLICATIONS = {
-    # ── NDA ──
+    # â”€â”€ NDA â”€â”€
     "nda_55": (
-        "By setting aside 10 acres as permanent green buffer, Belgo creates a 15% development reserve "
+        "By setting aside 10 acres as permanent green buffer, Acacia creates a 15% development reserve "
         "that dramatically reduces CC&R legal challenge risk. The trade-off: total saleable land drops 15%, "
         "reducing potential top-line revenue by approximately $80M at target pricing ($10M/acre). However, "
         "the premium positioning enabled by the buffer typically commands 15-20% higher per-acre pricing "
@@ -17,13 +17,13 @@ IMPLICATIONS = {
     "nda_65": (
         "Maximising developable area to 65 acres increases total potential revenue by ~$80M at target "
         "pricing. However, the absence of any development buffer increases CC&R legal vulnerability. "
-        "If challenged, a court could order Belgo to set aside additional green space at the most "
+        "If challenged, a court could order Acacia to set aside additional green space at the most "
         "inconvenient location, potentially disrupting the master plan."
     ),
 
-    # ── GREEN SPACE ──
+    # â”€â”€ GREEN SPACE â”€â”€
     "green_40": (
-        "Forty percent green space positions Kitisuru Corporate Campus as a premier executive environment. "
+        "Forty percent green space positions the Corporate Campus as a premier executive environment. "
         "This attracts the highest-quality tenants and commands 15-20% rental premium over standard "
         "commercial parks. Notable benchmarks: Apple Park (80%), GooglePlex (40%), Two Rivers (35%). "
         "The trade-off: reduced buildable area means lower total leasable square footage."
@@ -44,7 +44,7 @@ IMPLICATIONS = {
         "Post-COVID, 40% of corporate tenants cite outdoor space as a top-3 decision factor in lease selection."
     ),
 
-    # ── MONETISATION ──
+    # â”€â”€ MONETISATION â”€â”€
     "mon_Steward": (
         "The Steward approach retains 90% of the land in family ownership while generating recurring "
         "ground lease income from Year 3. Annual lease revenue at 6% of land value yields approximately "
@@ -57,7 +57,7 @@ IMPLICATIONS = {
         "The Balanced approach provides near-term liquidity through 30% outright sales (generating ~$156M "
         "in Year 1-2) while retaining long-term income through 40% ground leases. The 30% JV component "
         "shares development upside with a partner but dilutes family control proportionally. This is the "
-        "most flexible approach — it does not lock Belgo into a single monetisation strategy for the entire site."
+        "most flexible approach â€” it does not lock Acacia into a single monetisation strategy for the entire site."
     ),
     "mon_Developer": (
         "The Developer approach maximises near-term cash: 60% outright sales generate ~$312M in Year 1-2. "
@@ -66,13 +66,13 @@ IMPLICATIONS = {
         "$3M+/year in ground lease income forever (capitalised value: $50M+ at 6% cap rate)."
     ),
     "mon_Speculator": (
-        "The Speculator approach sells 70% outright — the maximum cash velocity. This generates ~$364M in "
+        "The Speculator approach sells 70% outright â€” the maximum cash velocity. This generates ~$364M in "
         "Year 1-2 but leaves the family owning only ~20 acres after 4 rounds. The remaining ground lease "
-        "income ($1.1M/year) is insufficient to sustain Belgo Holdings as an operating entity. This approach "
+        "income ($1.1M/year) is insufficient to sustain Acacia Holdings as an operating entity. This approach "
         "is essentially a land sale disguised as a development project."
     ),
     
-    # ── INFRASTRUCTURE ──
+    # â”€â”€ INFRASTRUCTURE â”€â”€
     "infra_JIT": (
         "Just-in-time infrastructure is the lowest-risk approach. Roads and utilities are built only as "
         "tenants commit. The initial capital outlay is minimal (~KES 500M vs KES 3.2B for full upfront). "
@@ -89,10 +89,10 @@ IMPLICATIONS = {
         "Full upfront infrastructure costs KES 3.2B and requires debt financing unless the family has "
         "substantial liquidity. The advantage: parcels are 'shovel-ready' for immediate tenant construction, "
         "reducing time-to-revenue by 18 months. The risk: if tenant demand materialises slower than projected, "
-        "Belgo carries KES 3.2B in debt with no income. Konza Technopolis provides a cautionary example."
+        "Acacia carries KES 3.2B in debt with no income. Konza Technopolis provides a cautionary example."
     ),
 
-    # ── RELATIONSHIPS ──
+    # â”€â”€ RELATIONSHIPS â”€â”€
     "nbo_strategic": (
         "Investing KES 10M/round in neighbourhood relationships is the highest-return decision in the "
         "simulation: +10 reputation per round, lawsuit immunity, faster permits (-3 months), and premium "
@@ -109,7 +109,7 @@ IMPLICATIONS = {
     "gov_strategic": (
         "Strategic partnership with the County Government unlocks faster permits (-6 months), opens the "
         "SEZ application pathway, and provides early warning of regulatory changes. The SEZ designation "
-        "is particularly valuable: it would allow Belgo to offer 10% corporate tax for 10 years, directly "
+        "is particularly valuable: it would allow Acacia to offer 10% corporate tax for 10 years, directly "
         "matching Tatu City's competitive advantage."
     ),
     "fin_strategic": (
@@ -119,7 +119,7 @@ IMPLICATIONS = {
         "saves KES 400M+ in interest payments."
     ),
     
-    # ── DEBT ──
+    # â”€â”€ DEBT â”€â”€
     "debt_0": (
         "Zero debt means the family funds development entirely from equity. This is the safest approach "
         "(no default risk, no interest payments) but the slowest: development capacity is limited by "
@@ -128,18 +128,18 @@ IMPLICATIONS = {
     ),
     "debt_high": (
         "Debt above 70% LTV is considered aggressive leverage for a development project of this scale. "
-        "While it accelerates construction (Phase 1 can start immediately), it leaves Belgo highly "
+        "While it accelerates construction (Phase 1 can start immediately), it leaves Acacia highly "
         "vulnerable to market shocks. If tenant demand softens or interest rates rise, debt service costs "
         "can consume 40-60% of gross income. A 300bps rate hike (the CBK's 2024 pattern) adds KES 96M/year "
         "in interest on KES 2.8B debt."
     ),
     
-    # ── DEVELOPER QUALITY ──
+    # â”€â”€ DEVELOPER QUALITY â”€â”€
     "dev_premium": (
         "Premium developers deliver on time and on budget, with proven track records on comparable projects. "
         "Their fees are 15-20% higher than market average, but schedule overruns (which cost 3-5%/month in "
         "carry costs) are virtually eliminated. For a KES 3.2B Phase 1, a 6-month delay costs KES 160-240M "
-        "in carry costs — far outweighing any premium developer fee differential."
+        "in carry costs â€” far outweighing any premium developer fee differential."
     ),
     "dev_lowest": (
         "The lowest-bid developer is the highest-risk choice. Cost overruns (20-40% above contract value), "
@@ -148,13 +148,13 @@ IMPLICATIONS = {
         "disputes or delays (KAGB 2023 Construction Industry Report)."
     ),
     
-    # ── EXIT / OFFER ──
+    # â”€â”€ EXIT / OFFER â”€â”€
     "offer_accept": (
         "Accepting the KES 88B ($1.1B) offer generates immediate liquidity for the family. At the target "
-        "$10M/acre, this is a fair market price. However, it permanently ends Belgo's development journey. "
+        "$10M/acre, this is a fair market price. However, it permanently ends Acacia's development journey. "
         "The family becomes cash-rich but asset-light. For context: 88 acres at $10M/acre = $880M. The "
         "$1.1B offer represents a 25% premium over current market pricing, reflecting the buyer's valuation "
-        "of Belgo's development progress (Safaricom commitment, approved master plan, CC&Rs in place)."
+        "of Acacia's development progress (Safaricom commitment, approved master plan, CC&Rs in place)."
     ),
     "offer_decline": (
         "Declining the $1.1B offer signals the family's commitment to the long-term vision. This decision "
@@ -164,9 +164,9 @@ IMPLICATIONS = {
         "risk, financing costs, and management effort."
     ),
     
-    # ── CONSTITUTION ──
+    # â”€â”€ CONSTITUTION â”€â”€
     "constitution_yes": (
-        "Adopting a family constitution is the single most important governance decision Belgo can make. "
+        "Adopting a family constitution is the single most important governance decision Acacia can make. "
         "It establishes decision-making protocols for dispute resolution (the Round 4 scenario), sets rules "
         "for share transfers and buyouts, and creates a framework for inter-generational governance. "
         "Families with constitutions are 3x more likely to retain assets across 3+ generations (Family "
