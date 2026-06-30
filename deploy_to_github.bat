@@ -18,8 +18,8 @@ if %ERRORLEVEL% neq 0 (
 )
 
 REM Get repo name
-set /p REPO="Enter GitHub repo name (default: acacia-simulation): "
-if "%REPO%"=="" set REPO=acacia-simulation
+set /p REPO="Enter GitHub repo name (default: belgo-simulation): "
+if "%REPO%"=="" set REPO=belgo-simulation
 
 set /p USERNAME="Enter your GitHub username: "
 

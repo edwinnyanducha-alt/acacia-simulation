@@ -21,11 +21,21 @@ from engine.implications import IMPLICATIONS, build_implications_from_decisions
 # â”€â”€ Styling â”€â”€
 st.markdown("""
 <style>
-    /* Global */
-    .stApp { background-color: #1B2C3D; }
-    .stButton > button { border-radius: 8px; font-weight: 600; }
+    /* ── Base font stack ── */
+    html, body, .stApp, .stMarkdown, p, div, span, li, label {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }
     
-    /* Cards */
+    /* ── Global ── */
+    .stApp { background-color: #1B2C3D; }
+    .stButton > button { 
+        border-radius: 8px; 
+        font-weight: 600; 
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+    }
+    
+    /* ── Cards ── */
     .decision-card {
         background: #2C3E50;
         border: 1px solid #3D5166;
@@ -37,10 +47,20 @@ st.markdown("""
         border: 2px solid #009688 !important;
         background: #1A3A35 !important;
     }
-    .card-header { color: #D4A017; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .card-subtitle { color: #95A5A6; font-size: 0.85rem; margin-bottom: 0.3rem; }
+    .card-header { 
+        color: #D4A017; 
+        font-weight: 700; 
+        font-size: 1.1rem; 
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+    }
+    .card-subtitle { 
+        color: #BDC3C7; 
+        font-size: 0.9rem; 
+        margin-bottom: 0.3rem; 
+    }
     
-    /* Envelope reveal */
+    /* ── Envelope reveal ── */
     .envelope {
         background: linear-gradient(135deg, #2C3E50, #1B2C3D);
         border: 2px solid #D4A017;
@@ -51,7 +71,7 @@ st.markdown("""
     }
     @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.02);} 100% {transform: scale(1);} }
     
-    /* Shock card */
+    /* ── Shock card ── */
     .shock-card {
         background: linear-gradient(135deg, #4A0E0E, #C0392B);
         border: 2px solid #E74C3C;
@@ -59,41 +79,61 @@ st.markdown("""
         padding: 1.5rem;
         color: white;
     }
-    .shock-title { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-    .shock-text { font-style: italic; font-size: 1rem; line-height: 1.5; }
+    .shock-title { 
+        font-size: 1.5rem; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        letter-spacing: 2px;
+        color: #FFD700;
+    }
+    .shock-text { 
+        font-style: italic; 
+        font-size: 1rem; 
+        line-height: 1.6; 
+        color: #F0F0F0;
+    }
     
-    /* Scoreboard */
+    /* ── Scoreboard ── */
     .scoreboard { border-collapse: collapse; width: 100%; }
     .scoreboard th { background: #1B2C3D; color: #D4A017; padding: 8px; text-align: center; }
     .scoreboard td { padding: 8px; text-align: center; border-bottom: 1px solid #3D5166; }
     .score-highlight { color: #D4A017; font-weight: 700; }
     .score-negative { color: #E74C3C; }
     
-    /* Status badges */
-    .badge-green { background: #27AE60; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
-    .badge-gold { background: #D4A017; color: #1B2C3D; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
-    .badge-red { background: #C0392B; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
-    .badge-gray { background: #7F8C8D; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
+    /* ── Status badges ── */
+    .badge-green { background: #27AE60; color: white; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+    .badge-gold { background: #D4A017; color: #1B2C3D; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+    .badge-red { background: #C0392B; color: white; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
+    .badge-gray { background: #7F8C8D; color: white; padding: 3px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; }
     
-    /* Progress */
+    /* ── Round indicator ── */
     .round-indicator { display: inline-block; width: 50px; height: 50px; border-radius: 50%; 
                        text-align: center; line-height: 50px; font-weight: 700; margin: 0 10px; }
     
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-        .decision-card { padding: 0.8rem; }
-        .stButton > button { font-size: 0.9rem; }
-    }
-    
-    /* Section divider */
+    /* ── Section divider ── */
     .section-divider { border: none; height: 2px; background: linear-gradient(90deg, #009688, #D4A017, #009688); margin: 2rem 0; }
     
-    /* Facilitator-only watermark */
+    /* ── Facilitator-only watermark ── */
     .facilitator-badge {
         background: #C0392B; color: white; 
         padding: 4px 16px; border-radius: 20px;
-        font-weight: 700; font-size: 0.8rem;
+        font-weight: 600; font-size: 0.85rem;
         display: inline-block; position: absolute; top: 10px; right: 10px;
+        letter-spacing: 1px;
+    }
+    
+    /* ── All radio button labels ── */
+    .stRadio label, .stSelectbox label {
+        font-size: 1rem !important;
+    }
+    .stRadio div[role="radiogroup"] label p {
+        font-size: 0.95rem !important;
+    }
+    
+    /* ── Mobile responsive ── */
+    @media (max-width: 768px) {
+        .decision-card { padding: 0.8rem; }
+        .stButton > button { font-size: 0.9rem; }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -549,9 +589,9 @@ def secret_reveal_screen():
     else:
         st.markdown(f"""
         <div style="max-width:700px; margin:2rem auto; background: #F5E6D0; border-radius:16px; padding:2.5rem;
-                    border:2px solid #D4A017; box-shadow: 0 8px 32px rgba(0,0,0,0.3); font-family: 'Georgia', serif;">
+                    border:2px solid #D4A017; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
             <div style="text-align:center; margin-bottom:1.5rem;">
-                <span style="background:{hex_col}; color:white; padding:4px 16px; border-radius:20px; font-size:0.9rem; font-family:sans-serif;">
+                <span style="background:{hex_col}; color:white; padding:4px 16px; border-radius:20px; font-size:0.9rem;">
                     â— {arch.name}
                 </span>
             </div>
@@ -560,7 +600,7 @@ def secret_reveal_screen():
                 <hr style="border:1px dashed #D4A017; margin:1rem 0;">
                 <p style="font-style:italic;">{arch.secret_text}</p>
             </div>
-            <div style="text-align:center; margin-top:1.5rem; font-family:sans-serif;">
+            <div style="text-align:center; margin-top:1.5rem;">
                 <span style="background:{hex_col}22; color:{hex_col}; padding:4px 12px; border-radius:8px; font-size:0.8rem;">
                     This is your private information. Do not share with other groups.
                 </span>

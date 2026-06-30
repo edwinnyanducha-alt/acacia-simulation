@@ -5,6 +5,9 @@ secondaryBackgroundColor = "#2C3E50"
 textColor = "#ECF0F1"
 font = "sans serif"
 
+[runner]
+fastReruns = true
+
 [server]
 maxUploadSize = 10
 enableCORS = true
