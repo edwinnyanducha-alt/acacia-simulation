@@ -196,7 +196,7 @@ def card_button(key: str, label: str, value, options: list,
         
         with cols[i]:
             label_text = label.format(opt) if '{' in label else f"{label}: {opt}"
-            display = f"{'âœ“ ' if is_selected else ''}{opt}"
+            display = f"{'[OK] ' if is_selected else ''}{opt}"
             if help_text:
                 display += f"\n{help_text}"
             
@@ -212,7 +212,7 @@ def archetype_card(colour: str, name: str, desc: str, hex_col: str) -> None:
     st.markdown(
         f"""
         <div style="background:{hex_col}22; border:1px solid {hex_col}; border-radius:12px; padding:1rem; margin-bottom:0.5rem;">
-            <span style="color:{hex_col}; font-weight:700; font-size:1.2rem;">â— {name}</span>
+            <span style="color:{hex_col}; font-weight:700; font-size:1.2rem;">[*] {name}</span>
             <p style="color:#ECF0F1; font-size:0.85rem; margin-top:0.3rem;">{desc}</p>
         </div>
         """,
@@ -258,7 +258,7 @@ def status_badge(text: str, status: str) -> str:
 # â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 def landing_page():
-    """Landing page â€” facilitator or group entry."""
+    """Landing page  -  facilitator or group entry."""
     st.markdown(
         """
         <div style="text-align:center; padding: 4rem 2rem 2rem 2rem;">
@@ -321,13 +321,13 @@ def facilitator_setup():
     with col2:
         st.markdown(
             '<div style="text-align:center; padding:1rem 0;">'
-            '<h2 style="color:#ECF0F1;">  ŸŽ® New Session</h2>'
+            '<h2 style="color:#ECF0F1;">  [>>] New Session</h2>'
             '<p style="color:#7F8C8D;">Create a simulation session and share the code with participants.</p>'
             '</div>',
             unsafe_allow_html=True
         )
         
-        title = st.text_input("Session Title", value=f"Acacia Simulation â€” {datetime.date.today().strftime('%d %b %Y')}")
+        title = st.text_input("Session Title", value=f"Acacia Simulation  -  {datetime.date.today().strftime('%d %b %Y')}")
         num_groups = st.selectbox("Number of Groups", [4, 3], index=0)
         
         if not st.session_state.session_created:
@@ -426,16 +426,16 @@ def group_input_round(round_num: int):
     col_a, col_b, col_c = st.columns([2, 1, 1])
     with col_a:
         st.markdown(
-            f'<span style="color:{hex_col}; font-weight:700;">â— {arch.name}</span> '
+            f'<span style="color:{hex_col}; font-weight:700;">[*] {arch.name}</span> '
             f'<span style="color:#7F8C8D;">| Session: {st.session_state.session_code or "----"}</span>',
             unsafe_allow_html=True
         )
     with col_b:
         if st.session_state.round_submitted[round_num - 1]:
-            st.markdown(f'<span class="badge-green">âœ“ Round {round_num} Submitted</span>',
+            st.markdown(f'<span class="badge-green">[OK] Round {round_num} Submitted</span>',
                         unsafe_allow_html=True)
         else:
-            st.markdown(f'<span class="badge-gold">Round {round_num} â€” Awaiting Input</span>',
+            st.markdown(f'<span class="badge-gold">Round {round_num}  -  Awaiting Input</span>',
                         unsafe_allow_html=True)
     with col_c:
         if st.button("[END] End Session", type="secondary"):
@@ -460,7 +460,7 @@ def group_input_round(round_num: int):
 
 
 def group_round1(arch):
-    """Round 1 â€” Ground Rules decision cards."""
+    """Round 1  -  Ground Rules decision cards."""
     col1, col2 = st.columns([3, 2])
     
     with col1:
@@ -469,7 +469,7 @@ def group_round1(arch):
                     '<div class="card-subtitle">How many of the 65 net acres do you develop?</div>',
                     unsafe_allow_html=True)
         nda = st.radio("NDA", [55, 60, 65], index=[55, 60, 65].index(st.session_state.get('decisions', {}).get('nda', 55)),
-                       format_func=lambda x: f"{x} acres{'   ŸŒ¿ (premium)' if x==55 else ' âš–       (balanced)' if x==60 else '   Ÿ“ˆ (max revenue)'}",
+                       format_func=lambda x: f"{x} acres{'   [P] (premium)' if x==55 else ' [B]     (balanced)' if x==60 else '   [R] (max revenue)'}",
                        horizontal=True, key="r1_nda", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
         
@@ -479,7 +479,7 @@ def group_round1(arch):
                     unsafe_allow_html=True)
         green = st.radio("Green Space", [40, 30, 20, 10],
                          index=[40, 30, 20, 10].index(st.session_state.get('decisions', {}).get('green_space', 40)),
-                         format_func=lambda x: f"{x}% {'  ŸŒ³  ŸŒ³  ŸŒ³  ŸŒ³ (premium)' if x==40 else '  ŸŒ³  ŸŒ³  ŸŒ³ (standard)' if x==30 else '  ŸŒ³  ŸŒ³ (minimum)' if x==20 else '  ŸŒ³ (bare)'}",
+                         format_func=lambda x: f"{x}% {'  [$]  [$]  [$]  [$] (premium)' if x==40 else '  [$]  [$]  [$] (standard)' if x==30 else '  [$]  [$] (minimum)' if x==20 else '  [$] (bare)'}",
                          horizontal=True, key="r1_green", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
         
@@ -489,10 +489,10 @@ def group_round1(arch):
                     unsafe_allow_html=True)
         mon_options = ["Steward", "Balanced", "Developer", "Speculator"]
         mon_labels = {
-            "Steward": "  ŸŒ± Steward â€” 70% lease / 20% JV / 10% sale",
-            "Balanced": "âš–       Balanced â€” 40% lease / 30% JV / 30% sale",
-            "Developer": "      —       Developer â€” 20% lease / 20% JV / 60% sale",
-            "Speculator": "  Ÿ“ˆ Speculator â€” 10% lease / 20% JV / 70% sale",
+            "Steward": "[S] Steward  -  70% lease / 20% JV / 10% sale",
+            "Balanced": "[B]     Balanced  -  40% lease / 30% JV / 30% sale",
+            "Developer": " [D] Developer  -  20% lease / 20% JV / 60% sale",
+            "Speculator": "[R] Speculator  -  10% lease / 20% JV / 70% sale",
         }
         mon = st.radio("Monetisation", mon_options,
                        index=mon_options.index(st.session_state.get('decisions', {}).get('monetisation', 'Balanced')),
@@ -505,7 +505,7 @@ def group_round1(arch):
         infra = st.radio("Infrastructure", ["Just-in-time", "Phased", "Full upfront"],
                          index=["Just-in-time", "Phased", "Full upfront"].index(
                              st.session_state.get('decisions', {}).get('infra', 'Phased')),
-                         format_func=lambda x: f"{'  Ÿ”„ ' if x=='Just-in-time' else '  Ÿ§© ' if x=='Phased' else '      —       '}{x}",
+                         format_func=lambda x: f"{'  [JIT] ' if x=='Just-in-time' else '  [P] ' if x=='Phased' else '      —       '}{x}",
                          horizontal=True, key="r1_infra", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -515,7 +515,7 @@ def group_round1(arch):
                     '<div class="card-subtitle">Budget: KES 30M total (10M per Strategic relationship)</div>',
                     unsafe_allow_html=True)
         
-        rel_options = {0: "  Ÿš« Ignore (KES 0M)", 1: "  Ÿ“‹ Admin (KES 5M)", 2: "  Ÿ¤ Strategic (KES 10M)"}
+        rel_options = {0: "  [x] Ignore (KES 0M)", 1: "  [i] Admin (KES 5M)", 2: "  [$] Strategic (KES 10M)"}
         
         nbo = st.selectbox("      ¢ NBO (Neighbouring Business Organisation)",
                            [0, 1, 2], format_func=lambda x: rel_options[x],
@@ -545,7 +545,7 @@ def group_round1(arch):
         # Secret preview
         st.markdown(
             '<div style="text-align:center; padding:1rem; background:#2C3E50; border-radius:12px; border:1px dashed #D4A017; margin-top:1rem;">'
-            '<p style="color:#D4A017; font-size:0.9rem;">  Ÿ” Secret information will be revealed after Round 1 is locked.</p>'
+            '<p style="color:#D4A017; font-size:0.9rem;">  [*] Secret information will be revealed after Round 1 is locked.</p>'
             '</div>',
             unsafe_allow_html=True
         )
@@ -592,7 +592,7 @@ def secret_reveal_screen():
                     border:2px solid #D4A017; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
             <div style="text-align:center; margin-bottom:1.5rem;">
                 <span style="background:{hex_col}; color:white; padding:4px 16px; border-radius:20px; font-size:0.9rem;">
-                    â— {arch.name}
+                    [*] {arch.name}
                 </span>
             </div>
             <div style="color:#2C3E50; font-size:1rem; line-height:1.6;">
@@ -614,7 +614,7 @@ def secret_reveal_screen():
 
 
 def group_round2(arch):
-    """Round 2 â€” Capital & Partners."""
+    """Round 2  -  Capital & Partners."""
     col1, col2 = st.columns([3, 2])
     
     with col1:
@@ -623,7 +623,7 @@ def group_round2(arch):
         debt = st.slider("Debt %", 0, 100, st.session_state.get('decisions', {}).get('debt_pct', 40), 10, key="r2_debt")
         st.markdown(f'<p style="color:#95A5A6;">Equity: {100-debt}%  |  Debt: {debt}%  |  '
                     f'<span style="color:{"#E74C3C" if debt>70 else "#27AE60" if debt<30 else "#F1C40F"}">'
-                    f'{"âš  Aggressive" if debt>70 else "âœ… Conservative" if debt<30 else "Standard"}</span></p>',
+                    f'{"[!] Aggressive" if debt>70 else "[OK] Conservative" if debt<30 else "Standard"}</span></p>',
                     unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
@@ -646,9 +646,9 @@ def group_round2(arch):
     with col2:
         # Q4-6: Relationships
         st.markdown('<div class="decision-card"><div class="card-header">Q4-6: Stakeholder Relationships</div>'
-                    '<div class="card-subtitle">Round 2 â€” Budget: KES 30M</div>',
+                    '<div class="card-subtitle">Round 2  -  Budget: KES 30M</div>',
                     unsafe_allow_html=True)
-        rel_options = {0: "  Ÿš« Ignore", 1: "  Ÿ“‹ Admin", 2: "  Ÿ¤ Strategic"}
+        rel_options = {0: "  [x] Ignore", 1: "  [i] Admin", 2: "  [$] Strategic"}
         nbo = st.selectbox("NBO", [0, 1, 2], format_func=lambda x: rel_options[x],
                            key="r2_nbo", index=1)
         gov = st.selectbox("GOV", [0, 1, 2], format_func=lambda x: rel_options[x],
@@ -662,7 +662,7 @@ def group_round2(arch):
         # Private information reminder
         st.markdown(
             f'<div style="padding:1rem; background:#D4A01722; border-radius:12px; border:1px dotted #D4A017; margin-top:1rem;">'
-            f'<p style="color:#D4A017; font-size:0.85rem;"><b>  Ÿ” Your Private Information</b></p>'
+            f'<p style="color:#D4A017; font-size:0.85rem;"><b>  [*] Your Private Information</b></p>'
             f'<p style="color:#ECF0F1; font-size:0.85rem;"><i>{arch.secret_text[:120]}...</i></p>'
             f'</div>',
             unsafe_allow_html=True
@@ -685,7 +685,7 @@ def group_round2(arch):
 
 
 def group_round3(arch):
-    """Round 3 â€” The Shock."""
+    """Round 3  -  The Shock."""
     if not st.session_state.shock_assigned:
         # Assign random shock
         shock_idx = random.randint(0, 3)
@@ -695,7 +695,7 @@ def group_round3(arch):
     shocks = [
         ("THE RIVAL", "Tatu City Expansion",
          "Tatu City announces a KES 15B expansion targeting the same corporate tenants you're negotiating with. "
-         "They offer SEZ tax breaks that you can't match â€” unless you get your own SEZ designation."),
+         "They offer SEZ tax breaks that you can't match  -  unless you get your own SEZ designation."),
         ("PARTNER DEFAULT", "Equity Partner Default",
          "Your external equity partner defaults on their capital commitment. KES 400M is now unavailable. "
          "Without it, Phase 1 construction stops."),
@@ -712,7 +712,7 @@ def group_round3(arch):
     # Shock card display
     st.markdown(f"""
     <div class="shock-card">
-        <div class="shock-title">âš  {shock_title}</div>
+        <div class="shock-title">[!] {shock_title}</div>
         <div style="font-size:1.1rem; margin-bottom:1rem;">{shock_subtitle}</div>
         <hr style="border-color:#E74C3C44;">
         <div class="shock-text">"{shock_text}"</div>
@@ -725,7 +725,7 @@ def group_round3(arch):
         # Response
         st.markdown('<div class="decision-card"><div class="card-header">Your Response</div>', unsafe_allow_html=True)
         pivot = st.radio("Response",
-                         [("  Ÿ”„ PIVOT", 2), ("  Ÿ¤ NEGOTIATE", 1), ("âš”       FIGHT", 0)],
+                         [("  [JIT] PIVOT", 2), ("  [$] NEGOTIATE", 1), ("[X] FIGHT", 0)],
                          format_func=lambda x: x[0],
                          horizontal=True, key="r3_pivot", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
@@ -756,7 +756,7 @@ def group_round3(arch):
 
 
 def group_round4(arch):
-    """Round 4 â€” Exit & Family."""
+    """Round 4  -  Exit & Family."""
     col1, col2 = st.columns([3, 2])
     
     with col1:
@@ -771,10 +771,10 @@ def group_round4(arch):
         # Q1: Offer
         st.markdown('<div class="decision-card"><div class="card-header">Q1: Response to Offer</div>', unsafe_allow_html=True)
         offer = st.radio("Offer", [0, 1, 2, 3],
-                         format_func=lambda x: ["  Ÿ’µ Accept â€” Sell everything (KES 88B)",
-                                                 "  Ÿ¤ Counter â€” Propose 60/40 JV",
-                                                 "  Ÿ›¡       Decline â€” Land is not for sale",
-                                                 "  Ÿ”€ Counter with partner"][x],
+                         format_func=lambda x: ["  [OK] Accept  -  Sell everything (KES 88B)",
+                                                 "  [$] Counter  -  Propose 60/40 JV",
+                                                 "  [x]       Decline  -  Land is not for sale",
+                                                 "  [JV] Counter with partner"][x],
                          horizontal=False, key="r4_offer", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
         
@@ -783,10 +783,10 @@ def group_round4(arch):
                     '<div class="card-subtitle">A family member challenges your decision.</div>',
                     unsafe_allow_html=True)
         dispute = st.radio("Dispute", [0, 1, 2, 3],
-                           format_func=lambda x: ["  Ÿ—³       Family vote â€” Let democracy decide",
-                                                   "  Ÿ¤ Mediation â€” Independent mediator",
-                                                   "  Ÿ’³ Buy-out â€” Purchase dissent share",
-                                                   "âš–       Court â€” Let courts decide"][x],
+                           format_func=lambda x: ["  [VOTE]       Family vote  -  Let democracy decide",
+                                                   "  [$] Mediation  -  Independent mediator",
+                                                   "  [BUY] Buy-out  -  Purchase dissent share",
+                                                   "[B]     Court  -  Let courts decide"][x],
                            horizontal=False, key="r4_dispute", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
     
@@ -795,7 +795,7 @@ def group_round4(arch):
         st.markdown('<div class="decision-card"><div class="card-header">Q3: Family Constitution</div>',
                     unsafe_allow_html=True)
         constitution = st.radio("Constitution", [1, 0],
-                                format_func=lambda x: "âœ… Yes â€” Lock governance rules" if x else "âŒ No â€” Deal with it later",
+                                format_func=lambda x: "[OK] Yes  -  Lock governance rules" if x else "[X] No  -  Deal with it later",
                                 horizontal=True, key="r4_constitution", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
         
@@ -842,7 +842,7 @@ def group_results():
     
     st.markdown(
         '<div style="text-align:center; padding:1.5rem;">'
-        '<h1 style="color:#D4A017;">      † Your Results</h1>'
+        '<h1 style="color:#D4A017;"> [*] Your Results</h1>'
         '<p style="color:#7F8C8D;">Waiting for the facilitator to reveal final scores...</p>'
         '</div>',
         unsafe_allow_html=True
@@ -877,11 +877,11 @@ def group_results():
     
     # Implications
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
-    st.markdown('<h3 style="color:#D4A017;">  Ÿ“– Your Decision Implications</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 style="color:#D4A017;">  [*] Your Decision Implications</h3>', unsafe_allow_html=True)
     
     implications = build_implications_from_decisions(decisions)
     for label, text in implications:
-        with st.expander(f"  Ÿ“Œ {label}"):
+        with st.expander(f"  [*] {label}"):
             st.markdown(f'<p style="color:#ECF0F1; line-height:1.6;">{text}</p>', unsafe_allow_html=True)
 
 
@@ -889,7 +889,7 @@ def facilitator_dashboard():
     """Facilitator's command centre."""
     st.markdown(
         '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">'
-        '<h2 style="color:#ECF0F1; margin:0;">  ŸŽ® Facilitator Dashboard</h2>'
+        '<h2 style="color:#ECF0F1; margin:0;">  [>>] Facilitator Dashboard</h2>'
         f'<div><span class="badge-red">FACILITATOR ONLY</span> '
         f'<span style="color:#D4A017; font-weight:700; margin-left:1rem;">Code: {st.session_state.session_code or "----"}</span></div>'
         '</div>',
@@ -899,13 +899,13 @@ def facilitator_dashboard():
     # Session info bar
     col_a, col_b, col_c, col_d = st.columns(4)
     with col_a:
-        st.markdown(f'<p style="color:#27AE60;">â— Stewards</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#27AE60;">[*] Stewards</p>', unsafe_allow_html=True)
     with col_b:
-        st.markdown(f'<p style="color:#2980B9;">â— Developers</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#2980B9;">[*] Developers</p>', unsafe_allow_html=True)
     with col_c:
-        st.markdown(f'<p style="color:#D4A017;">â— Rainmakers</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#D4A017;">[*] Rainmakers</p>', unsafe_allow_html=True)
     with col_d:
-        st.markdown(f'<p style="color:#C0392B;">â— Gamblers</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#C0392B;">[*] Gamblers</p>', unsafe_allow_html=True)
     
     st.markdown("<hr class='section-divider'>", unsafe_allow_html=True)
     
@@ -915,7 +915,7 @@ def facilitator_dashboard():
     for i, (col, name) in enumerate(zip(col_rounds, round_names)):
         with col:
             status = "success" if st.session_state.round_submitted[i] else ("warning" if st.session_state.current_round >= i+1 else "neutral")
-            label = "âœ“ Done" if st.session_state.round_submitted[i] else ("â³ Active" if st.session_state.current_round == i+1 else "â¸ Waiting")
+            label = "[OK] Done" if st.session_state.round_submitted[i] else ("[>>] Active" if st.session_state.current_round == i+1 else "[...] Waiting")
             st.markdown(f'<div style="text-align:center; padding:0.5rem; background:#2C3E50; border-radius:8px;">'
                         f'<p style="color:{("#27AE60" if status=="success" else "#D4A017" if status=="warning" else "#7F8C8D")};">{name}</p>'
                         f'<span class="badge-{status}">{label}</span></div>',
@@ -926,10 +926,10 @@ def facilitator_dashboard():
     # Simulated group status
     st.markdown('<h3 style="color:#ECF0F1;">Group Submission Status</h3>', unsafe_allow_html=True)
     status_data = [
-        ["Stewards", "  (G)", "âœ“", "Connected"],
-        ["Developers", "  (B)", "âœ“", "Connected"],
-        ["Rainmakers", "  (Y)", "â³", "Connected"],
-        ["Gamblers", "  (R)", "âœ—", "Not yet joined"],
+        ["Stewards", "  (G)", "[OK]", "Connected"],
+        ["Developers", "  (B)", "[OK]", "Connected"],
+        ["Rainmakers", "  (Y)", "[>>]", "Connected"],
+        ["Gamblers", "  (R)", "[--]", "Not yet joined"],
     ]
     st.table(pd.DataFrame(status_data, columns=["Group", "Colour", "Round 1", "Status"]))
     
@@ -938,7 +938,7 @@ def facilitator_dashboard():
     # Hidden scoreboard
     col_hide, col_reveal = st.columns([1, 1])
     with col_hide:
-        hidden = st.toggle("  Ÿ”’ Hidden Scores (toggle to show)", value=st.session_state.show_hidden_scores)
+        hidden = st.toggle("  [..] Hidden Scores (toggle to show)", value=st.session_state.show_hidden_scores)
         st.session_state.show_hidden_scores = hidden
     
     if st.session_state.show_hidden_scores:
@@ -952,7 +952,7 @@ def facilitator_dashboard():
         
         st.markdown(
             '<div style="padding:1rem; background:#1B2C3D; border-radius:12px; border:1px solid #E74C3C;">'
-            '<p style="color:#E74C3C; font-weight:700;">  Ÿ”“ REAL-TIME SCORES (Hidden from Groups)</p>',
+            '<p style="color:#E74C3C; font-weight:700;">  [*] REAL-TIME SCORES (Hidden from Groups)</p>',
             unsafe_allow_html=True
         )
         
@@ -1007,25 +1007,25 @@ def facilitator_dashboard():
     # Show what's been revealed
     if st.session_state.facilitator_reveal_phase >= 1:
         st.markdown('<div style="padding:1rem; background:#2C3E50; border-radius:12px; margin-top:1rem; border:1px solid #27AE60;">'
-                    '<h4 style="color:#27AE60;">âœ“ Scores Revealed</h4>'
+                    '<h4 style="color:#27AE60;">[OK] Scores Revealed</h4>'
                     '<p style="color:#7F8C8D;">The scoreboard is being projected to the room.</p></div>',
                     unsafe_allow_html=True)
     
     if st.session_state.facilitator_reveal_phase >= 2:
         st.markdown('<div style="padding:1rem; background:#2C3E50; border-radius:12px; margin-top:1rem; border:1px solid #D4A017;">'
-                    '<h4 style="color:#D4A017;">âœ“ Secrets Revealed</h4>'
+                    '<h4 style="color:#D4A017;">[OK] Secrets Revealed</h4>'
                     '<p style="color:#7F8C8D;">Each group\'s secret mission is now visible to the room.</p></div>',
                     unsafe_allow_html=True)
     
     if st.session_state.facilitator_reveal_phase >= 3:
         st.markdown('<div style="padding:1rem; background:#2C3E50; border-radius:12px; margin-top:1rem; border:1px solid #2980B9;">'
-                    '<h4 style="color:#2980B9;">âœ“ Ideal Responses Shown</h4>'
+                    '<h4 style="color:#2980B9;">[OK] Ideal Responses Shown</h4>'
                     '<p style="color:#7F8C8D;">Per-archetype optimal choices displayed for comparison.</p></div>',
                     unsafe_allow_html=True)
     
     if st.session_state.facilitator_reveal_phase >= 4:
         st.markdown('<div style="padding:1rem; background:#2C3E50; border-radius:12px; margin-top:1rem; border:1px solid #27AE60;">'
-                    '<h4 style="color:#27AE60;">âœ“ Implications Displayed</h4>'
+                    '<h4 style="color:#27AE60;">[OK] Implications Displayed</h4>'
                     '<p style="color:#7F8C8D;">Full implications library accessible. Discussion prompts active.</p></div>',
                     unsafe_allow_html=True)
     
